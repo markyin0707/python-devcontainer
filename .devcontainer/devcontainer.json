@@ -1,33 +1,33 @@
 {
-    "name": "Python DevContainer",
-    "dockerFile": "Dockerfile",
-    "customizations": {
-        "vscode": {
-            "settings": {
-                "editor.tabSize": 2,
-                "files.trimTrailingWhitespace": true,
-                "workbench.colorTheme": "Aura Dark",
-                "workbench.iconTheme": "material-icon-theme",
-                "files.exclude": {
-                    ".env": true,
-                    ".git": true,
-                    ".pytest**": true,
-                    ".vscode": true,
-                    "**/__pycache__": true,
-                    "**/.git": false,
-                    "**/.vagrant": true,
-                    "venv": true
+    "name": "Python DevContainer", // 配置文件的名称为 Python DevContainer
+    "dockerFile": "Dockerfile", // 使用名为 Dockerfile 的文件作为容器的构建配置文件
+    "customizations": { // 配置自定义设置
+        "vscode": { // 针对 VS Code 进行配置
+            "settings": { // 配置 VS Code 的设置
+                "editor.tabSize": 2, // 编辑器的 Tab 键宽度为 2 个空格
+                "files.trimTrailingWhitespace": true, // 删除文件末尾的空白字符
+                "workbench.colorTheme": "Aura Dark", // 使用名为 Aura Dark 的主题
+                "workbench.iconTheme": "material-icon-theme", // 使用名为 material-icon-theme 的图标主题
+                "files.exclude": { // 排除指定的文件或文件夹
+                    ".env": true, // 排除 .env 文件
+                    ".git": true, // 排除 .git 文件夹
+                    ".pytest**": true, // 排除名为 .pytest 或以 .pytest 开头的文件或文件夹
+                    ".vscode": true, // 排除 .vscode 文件夹
+                    "**/__pycache__": true, // 排除名为 __pycache__ 的任何文件或文件夹
+                    "**/.git": false, // 不排除以 .git 开头的文件或文件夹
+                    "**/.vagrant": true, // 排除名为 .vagrant 的文件或文件夹
+                    "venv": true // 排除名为 venv 的文件夹
                 }
             },
-            "extensions": [
-                "ms-python.python",
-                "ms-python.vscode-pylance",
-                "DaltonMenezes.aura-theme",
-                "equinusocio.vsc-material-theme-icons",
-                "GitHub.copilot"
+            "extensions": [ // 安装扩展插件列表
+                "ms-python.python", // Python 插件
+                "ms-python.vscode-pylance", // Python LSP 插件
+                "DaltonMenezes.aura-theme", // Aura Dark 主题插件
+                "equinusocio.vsc-material-theme-icons", // Material Icon Theme 主题插件
+                "GitHub.copilot" // GitHub Copilot 插件
             ]
         }
     },
-    "remoteUser": "devcontainer",
-    "postCreateCommand": "bash -i -c 'pre-commit install && pip install -r requirements.txt'"
+    "remoteUser": "devcontainer", // 以 devcontainer 用户身份运行容器
+    "postCreateCommand": "bash -i -c 'pre-commit install && pip install -r requirements.txt'" // 在创建容器后执行的命令，安装 pre-commit 和依赖项
 }
